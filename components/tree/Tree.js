@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 
 
 export default function Tree() {
-
+  const router= useRouter();
   const [nodes,setjsonNode] = useState([]);
   
   useEffect(()=>{
@@ -24,12 +24,9 @@ export default function Tree() {
   }) 
 
   {
-     const router= useRouter();
-    const handleClick = (e) => {
     
-     console.log(e)
-
-      router.push('/repos')
+    const handleClick = (e) => {
+     router.push('/repos')
     }
     // eslint-disable-next-line react-hooks/rules-of-hooks
     
