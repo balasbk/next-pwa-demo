@@ -1,0 +1,18 @@
+[
+    {
+        "id":"1",
+        "value":"Business operations",
+        "page":"demopage",
+        "title":"Business operations page",
+        "description":"Business operations description"
+
+    },
+    {
+        "id":"2",
+        "value":"Artificial intelligence",
+        "page":"demopage",
+        "title":"Artificial intelligence page",
+        "description":"Artificial intelligence description"
+
+    }
+]
