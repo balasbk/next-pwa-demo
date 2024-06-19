@@ -29,7 +29,7 @@ export default function Tree() {
     
      console.log(e)
 
-      // router.push('/repos')
+      router.push('/repos')
     }
     // eslint-disable-next-line react-hooks/rules-of-hooks
     
