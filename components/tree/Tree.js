@@ -10,11 +10,16 @@ import { useRouter } from 'next/navigation'
 export default function Tree() {
   const router= useRouter();
   const [nodes,setjsonNode] = useState([]);
+  const [routeValue,setrouteValue] = useState([]);
   
   useEffect(()=>{
     fetch('/json/tree.json')
     .then((response)=>response.json())
     .then((data)=> setjsonNode(data));
+
+    fetch('/json/page.json')
+    .then((response)=>response.json())
+    .then((data)=> setrouteValue(data));
   },[]);
  
   function renderTree({
@@ -26,7 +31,11 @@ export default function Tree() {
   {
     
     const handleClick = (e) => {
-     router.push('/repos')
+      console.log(e.target.innerText)
+      console.log(routeValue)
+      let path = routeValue.find(el => el.value === e.target.innerText);
+      console.log(path)
+     router.push(path["path"])
     }
     // eslint-disable-next-line react-hooks/rules-of-hooks
     

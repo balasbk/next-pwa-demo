@@ -1,29 +1,12 @@
 [
-    {
-      "id": "1",
-      "value": "AI",
-      "label": "Artificial intelligence",
-      "renderIcon": "Document"
-    },
-    {
-      "id": "4",
-      "value": "Business operations",
-      "label": "Business operations",
-      "renderIcon": "Document"
-    },
+
     {
       "id": "5",
       "value": "Cloud computing",
       "label": "Cloud computing",
       "isExpanded": true,
       "renderIcon": "Folder",
-      "children": [
-        {
-          "id": "5-1",
-          "value": "Containers",
-          "label": "Containers",
-          "renderIcon": "Document"
-        },
+      "children": [ 
         {
           "id": "5-2",
           "value": "Databases",

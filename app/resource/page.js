@@ -25,7 +25,7 @@ const StoryContent = ({
     <div>
           <h2 style={{
           margin: '0 0 30px'
-        }}>Purpose and function</h2>
+        }}>Test RESOURCES Page</h2>
           <p>
             The shell is perhaps the most crucial piece of any UI built with
             <a href="www.carbondesignsystem.com"> Carbon</a>. It contains the

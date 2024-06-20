@@ -18,23 +18,27 @@ import {
 import { Switcher, Notification, UserAvatar } from '@carbon/icons-react';
 import Link from 'next/link';
 import Tree from '@/components/tree/Tree'
-const TutorialHeader = () => (
+import { useEffect,useState } from 'react';
+const TutorialHeader = () => {
+
+  const [isSideNavExpanded,setisSideNavExpanded] = useState(true);
+
+  return(
   <HeaderContainer
-    render={({ isSideNavExpanded, onClickSideNavExpand }) => (
+    render={() => (
       <Header aria-label="Carbon Tutorial">
         <SkipToContent />
         <HeaderMenuButton
           aria-label="Open menu"
-          onClick={onClickSideNavExpand}
+          onClick={()=>setisSideNavExpanded(!isSideNavExpanded)}
           isActive={isSideNavExpanded}
         />
         <HeaderName href="/" prefix="IBM">
-          Carbon Tutorial
+          SPT DEMO
         </HeaderName>
        
         <SideNav
-          aria-label="Side navigation"
-          expanded={isSideNavExpanded}
+         expanded={isSideNavExpanded} 
           
         >
  <SideNavItems>
@@ -63,7 +67,7 @@ const TutorialHeader = () => (
         </HeaderGlobalBar>
       </Header>
     )}
-  />
-);
+  />)
+  };
 
 export default TutorialHeader;

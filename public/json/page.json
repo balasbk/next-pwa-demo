@@ -1,7 +1,8 @@
 [
     {
         "id":"1",
-        "value":"Business operations",
+        "value":"Solutions",
+        "path":"/solution",
         "page":"demopage",
         "title":"Business operations page",
         "description":"Business operations description"
@@ -9,10 +10,49 @@
     },
     {
         "id":"2",
-        "value":"Artificial intelligence",
+        "value":"Databases",
+        "path":"/database",
         "page":"demopage",
         "title":"Artificial intelligence page",
         "description":"Artificial intelligence description"
 
-    }
+    },
+    
+    {
+        "id":"3",
+        "value":"DevOps",
+        "path":"/devops",
+        "page":"demopage",
+        "title":"Artificial intelligence page",
+        "description":"Artificial intelligence description"
+
+    },
+    {
+        "id":"4",
+        "value":"Case studies",
+        "path":"/case",
+        "page":"demopage",
+        "title":"Artificial intelligence page",
+        "description":"Artificial intelligence description"
+
+    },
+    {
+        "id":"5",
+        "value":"Resources",
+        "path":"/resource",
+        "page":"demopage",
+        "title":"Artificial intelligence page",
+        "description":"Artificial intelligence description"
+
+    },
+    {
+    "id":"6",
+    "value":"Cloud computing",
+    "path":"/repos",
+    "page":"demopage",
+    "title":"Artificial intelligence page",
+    "description":"Artificial intelligence description"
+
+}
+
 ]
