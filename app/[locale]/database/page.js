@@ -3,14 +3,20 @@
 
 import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
+import {useTranslations} from 'next-intl';
+
+
+
 
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
+    
   const classNameFirstColumn = cx({
     'cds--col-lg-13': true,
     'cds--offset-lg-3': useResponsiveOffset
   });
+  const t = useTranslations('Database');
   const content = <Grid>
      <Column sm={{
     span: 4,
@@ -25,7 +31,7 @@ const StoryContent = ({
     <div>
           <h2 style={{
           margin: '0 0 30px'
-        }}>Test DATABASES Page</h2>
+        }}>{t('title')}</h2>
           <p>
             The shell is perhaps the most crucial piece of any UI built with
             <a href="www.carbondesignsystem.com"> Carbon</a>. It contains the
@@ -90,7 +96,8 @@ const StoryContent = ({
 };
 
 export default function RepoPage() {
+
   return(<div>
-    <StoryContent/>
+    <StoryContent />
   </div>);
 }

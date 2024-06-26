@@ -1,10 +1,10 @@
-import withPWAInit from "next-pwa";
-
-const withPWA = withPWAInit({
-  dest: "public",
-});
-
-export default withPWA({
-    // reactStrictMode: true,
-    output: "export",
-});
+import createNextIntlPlugin from 'next-intl/plugin';
+ 
+const withNextIntl = createNextIntlPlugin('./i18n.js');
+ 
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    
+};
+ 
+export default withNextIntl(nextConfig);

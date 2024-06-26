@@ -3,6 +3,7 @@
 
 import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
+import Image from 'next/image'
 
 const StoryContent = ({
   useResponsiveOffset = true
@@ -51,6 +52,9 @@ const StoryContent = ({
             these parts of the Mac UI. For example, the app switcher portion of
             the shell can be compared to the dock in MacOS.
           </p>
+          <div>
+
+          </div>
           <h2 style={{
           margin: '30px 0'
         }}>Header responsive behavior</h2>

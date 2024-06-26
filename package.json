@@ -8,7 +8,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
-
   },
   "dependencies": {
     "@carbon/react": "^1.33.0",
@@ -16,9 +15,14 @@
     "carbon-components-react": "^8.59.0",
     "carbon-icons": "^7.0.7",
     "next": "14.2.4",
+    "next-intl": "^3.15.2",
     "next-pwa": "^5.6.0",
+    "next-translate": "^2.6.2",
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.63.6"
+  },
+  "devDependencies": {
+    "next-translate-plugin": "^2.6.2"
   }
 }

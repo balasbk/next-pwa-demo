@@ -1,7 +1,11 @@
 'use client'
 import { Content,Grid,Column } from "@carbon/react";
+import {useTranslations} from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('Index');
+  console.log(t)
+console.log( t('title') )
   return (
     <Grid>
      <Column sm={{
@@ -14,7 +18,7 @@ export default function Home() {
     span: 12,
     offset: 4
   }} >
-<p>welcome to test app</p>
+<h1> {t('title')}</h1>
   </Column>
   </Grid>
 
