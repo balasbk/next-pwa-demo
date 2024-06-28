@@ -27,6 +27,9 @@ export default function Home() {
     
     />
     </div>
+    <div>
+      <p>test app testing</p>
+    </div>
  
   </Column>
   </Grid>

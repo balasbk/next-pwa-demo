@@ -30,10 +30,8 @@ export default function Tree() {
 
   {
     
-    const handleClick = (e) => {
-      console.log(e.target.innerText)
-      console.log(routeValue)
-      let path = routeValue.find(el => el.value === e.target.innerText);
+    const handleClick = (e,value) => {
+      let path = routeValue.find(el => el.value === value);
       console.log(path)
      router.push(path["path"])
     }
@@ -47,7 +45,7 @@ export default function Tree() {
       renderIcon,
       isExpanded,
       ...nodeProps
-    }) => <TreeNode key={nodeProps.id} renderIcon={withIcons ? renderIcon : null} isExpanded={expanded ?? isExpanded} {...nodeProps} onSelect={handleClick} id={nodeProps.id} >
+    }) => <TreeNode key={nodeProps.id} renderIcon={withIcons ? renderIcon : null} isExpanded={expanded ?? isExpanded} {...nodeProps} onSelect={(e)=>handleClick(e,nodeProps.value)} id={nodeProps.id} >
         {renderTree({
         nodes: children,
         expanded,
