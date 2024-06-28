@@ -115,7 +115,7 @@ export default function RepoPage() {
       <div style={{ position: 'relative', height: '400px' }}>
         <Image
           alt="Mountains"
-          src={Pic2}
+          src={Pic1}
           fill
           sizes="(min-width: 808px) 50vw, 100vw"
           style={{
@@ -130,7 +130,7 @@ export default function RepoPage() {
       <div style={{ position: 'relative', height: '400px' }}>
         <Image
           alt="Mountains"
-          src={Pic2}
+          src={Pic1}
           fill
           sizes="(min-width: 808px) 50vw, 100vw"
           style={{
