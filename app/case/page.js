@@ -28,7 +28,7 @@ const StoryContent = ({
           <h2 style={{
           margin: '0 0 30px'
         }}>Test CASE STUDY Page</h2>
-       <div className={styles.container}>
+       <div>
       <Image
         src={Pic2}
         alt="Example Image"
