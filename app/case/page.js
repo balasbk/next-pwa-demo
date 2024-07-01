@@ -3,7 +3,9 @@
 
 import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
-
+import Image from 'next/image'
+import Pic2 from '../../public/pic2.jpg'
+import styles from './case.module.css'
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
@@ -26,7 +28,16 @@ const StoryContent = ({
           <h2 style={{
           margin: '0 0 30px'
         }}>Test CASE STUDY Page</h2>
+       <div className={styles.container}>
+      <Image
+        src={Pic2}
+        alt="Example Image"
+        className={styles.responsiveImage}
+      />
+    </div>
+   
           <p>
+            
             The shell is perhaps the most crucial piece of any UI built with
             <a href="www.carbondesignsystem.com"> Carbon</a>. It contains the
             shared navigation framework for the entire design system and ties
