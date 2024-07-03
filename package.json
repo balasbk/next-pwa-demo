@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@carbon/react": "^1.33.0",
+    "@ducanh2912/next-pwa": "^10.2.7",
     "carbon-components": "^10.58.12",
     "carbon-components-react": "^8.59.0",
     "carbon-icons": "^7.0.7",
     "next": "14.2.4",
-    "next-pwa": "^5.6.0",
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.63.6",
-    "start": "^5.1.0"
+    "sharp": "^0.33.4"
+  },
+  "resolutions": {
+    "glob": "^9.0.0"
   }
 }
