@@ -3,6 +3,9 @@
 
 import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
+import { useState } from 'react';
+
+
 
 const StoryContent = ({
   useResponsiveOffset = true
@@ -11,6 +14,15 @@ const StoryContent = ({
     'cds--col-lg-13': true,
     'cds--offset-lg-3': useResponsiveOffset
   });
+  const [message, setMessage] = useState('');
+  const writeDate = async () => {
+    const response = await fetch('/api/writeDate', {
+      method: 'POST',
+    });
+  
+    const data = await response.json();
+    setMessage(data.message);
+  };
   const content = <Grid>
      <Column sm={{
     span: 4,
@@ -60,20 +72,11 @@ const StoryContent = ({
             “hamburger” menu. See the example to better understand responsive
             behavior of the header.
           </p>
-          <h2 style={{
-          margin: '30px 0'
-        }}>Secondary navigation</h2>
-          <p>
-            The side-nav contains secondary navigation and fits below the
-            header. It can be configured to be either fixed-width or flexible,
-            with only one level of nested items allowed. Both links and category
-            lists can be used in the side-nav and may be mixed together. There
-            are several configurations of the side-nav, but only one
-            configuration should be used per product section. If tabs are needed
-            on a page when using a side-nav, then the tabs are secondary in
-            hierarchy to the side-nav.
-          </p>
-       
+          <div>
+      <h1>Welcome to Next.js</h1>
+      <button onClick={writeDate}>Write Date</button>
+      {message && <p>{message}</p>}
+    </div>
       </div>
       </Column>
       </Grid>;
@@ -90,6 +93,7 @@ const StoryContent = ({
 };
 
 export default function RepoPage() {
+  
   return(<div>
     <StoryContent/>
   </div>);
