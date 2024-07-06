@@ -7,7 +7,7 @@ export async function POST(req) {
 
   console.log(data)
 
-  const filePath = path.join(process.cwd(), 'data', 'date.json');
+  const filePath = path.join('/tmp', 'data', 'date.json');
 
   // Ensure the data directory exists
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
