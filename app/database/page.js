@@ -25,7 +25,7 @@ const StoryContent = ({
   
     const data = await response.json();
     console.log(data)
-    setMessage(data.message);
+    setMessage(data.data.date);
   };
   const content = <Grid>
      <Column sm={{
