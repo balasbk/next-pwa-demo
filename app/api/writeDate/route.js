@@ -6,6 +6,7 @@ export async function POST(req) {
   const data = { date: date.toISOString() };
 
   console.log(data)
+
   const filePath = path.join(process.cwd(), 'data', 'date.json');
 
   // Ensure the data directory exists
@@ -14,7 +15,7 @@ export async function POST(req) {
   // Write the date to the JSON file
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 
-  return new Response(JSON.stringify({ message: 'Date written successfully'}), {
+  return new Response(JSON.stringify({ message: 'Date written successfully',data}), {
     status: 200,
     headers: {
       'Content-Type': 'application/json',

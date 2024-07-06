@@ -18,9 +18,13 @@ const StoryContent = ({
   const writeDate = async () => {
     const response = await fetch('/api/writeDate', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
     });
   
     const data = await response.json();
+    console.log(data)
     setMessage(data.message);
   };
   const content = <Grid>
