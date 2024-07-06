@@ -6,13 +6,13 @@ export async function POST(req) {
   const data = { date: date.toISOString() };
 
   console.log(data)
-  // const filePath = path.join(process.cwd(), 'data', 'date.json');
+  const filePath = path.join(process.cwd(), 'data', 'date.json');
 
-  // // Ensure the data directory exists
-  // fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  // Ensure the data directory exists
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
 
-  // // Write the date to the JSON file
-  // fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  // Write the date to the JSON file
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 
   return new Response(JSON.stringify({ message: 'Date written successfully'}), {
     status: 200,
