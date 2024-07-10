@@ -77,9 +77,6 @@ const StoryContent = ({
             behavior of the header.
           </p>
           <div>
-      <h1>Welcome to Next.js</h1>
-      <button onClick={writeDate}>Write Date</button>
-      {message && <p>{message}</p>}
     </div>
       </div>
       </Column>
