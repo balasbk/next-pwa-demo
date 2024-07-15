@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 
 
 
-export default function Tree() {
+export default function Tree(props) {
   const router= useRouter();
   const [nodes,setjsonNode] = useState([]);
   const [routeValue,setrouteValue] = useState([]);
@@ -33,6 +33,7 @@ export default function Tree() {
     const handleClick = (e,value) => {
       let path = routeValue.find(el => el.value === value);
       console.log(path)
+      props.sendDataToParent();
      router.push(path["path"])
     }
     // eslint-disable-next-line react-hooks/rules-of-hooks

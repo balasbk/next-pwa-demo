@@ -23,6 +23,10 @@ const TutorialHeader = () => {
 
   const [isSideNavExpanded,setisSideNavExpanded] = useState(true);
 
+  function handleDataFromChild() {
+    setisSideNavExpanded(false);
+  }
+
   return(
   <HeaderContainer
     render={() => (
@@ -42,7 +46,7 @@ const TutorialHeader = () => {
           
         >
  <SideNavItems>
-      <Tree/>
+      <Tree sendDataToParent={handleDataFromChild}/>
        
       </SideNavItems>
         </SideNav>
