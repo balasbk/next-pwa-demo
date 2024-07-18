@@ -22,10 +22,18 @@ import { useEffect,useState } from 'react';
 const TutorialHeader = () => {
 
   const [isSideNavExpanded,setisSideNavExpanded] = useState(true);
+  const [expandedNodes, setExpandedNodes] = useState({});
 
   function handleDataFromChild() {
     setisSideNavExpanded(false);
   }
+
+  const handleToggle = (label, isExpanded) => {
+    setExpandedNodes((prev) => ({
+      ...prev,
+      [label]: isExpanded,
+    }));
+  };
 
   return(
   <HeaderContainer
@@ -46,7 +54,8 @@ const TutorialHeader = () => {
           
         >
  <SideNavItems>
-      <Tree sendDataToParent={handleDataFromChild}/>
+
+          <Tree  expandedNodes={expandedNodes} onToggle={handleToggle} />
        
       </SideNavItems>
         </SideNav>

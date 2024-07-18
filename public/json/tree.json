@@ -1,48 +1,18 @@
-[
 
-    {
-      "id": "5",
-      "value": "Cloud computing",
-      "label": "Cloud computing",
-      "isExpanded": true,
-      "renderIcon": "Folder",
-      "children": [ 
-        {
-          "id": "5-2",
-          "value": "Databases",
-          "label": "Databases",
-          "renderIcon": "Document"
-        },
-        {
-          "id": "5-3",
-          "value": "DevOps",
-          "label": "DevOps",
-          "isExpanded": true,
-          "renderIcon": "Folder",
-          "children": [
-            {
-              "id": "5-4",
-              "value": "Solutions",
-              "label": "Solutions",
-              "renderIcon": "Document"
-            },
-            {
-              "id": "5-5",
-              "value": "Case studies",
-              "label": "Case studies",
-              "isExpanded": true,
-              "renderIcon": "Folder",
-              "children": [
-                {
-                  "id": "5-6",
-                  "value": "Resources",
-                  "label": "Resources",
-                  "renderIcon": "Document"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
+[
+  {
+    "label": "Case",
+    "url": "/case",
+    "children": [
+      { "label": "Database", "url": "/database" },
+      { "label": "Repos", "url": "/repos" },
+      {
+        "label": "Resource",
+        "url": "/resource",
+        "children": [
+          { "label": "solution", "url": "/solution" }
+        ]
+      }
+    ]
+  }
+]
