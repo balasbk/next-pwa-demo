@@ -13,10 +13,17 @@ const Tree = ({ expandedNodes, onToggle }) => {
   }, []);
 
   const handleSelect = (node) => {
+   
     if (node.url) {
       router.push(node.url);
     }
   };
+  
+  const handleToggle =(node)=>
+    {
+      onToggle(node.label, !expandedNodes[node.label]);
+
+    }
 
   const renderTreeNodes = (nodes) => {
     return nodes.map((node, index) => (
@@ -25,7 +32,7 @@ const Tree = ({ expandedNodes, onToggle }) => {
         key={index}
         isExpanded={expandedNodes[node.label] || false}
         onSelect={() => handleSelect(node)}
-        onToggle={(event, isExpanded) => onToggle(node.label, isExpanded)}
+        onToggle={(event, isExpanded) => handleToggle(node)}
       >
         {node.children && renderTreeNodes(node.children)}
       </TreeNode>
