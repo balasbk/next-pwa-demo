@@ -1,34 +1,63 @@
 import { useEffect, useState } from 'react';
 
 const HomePage = () => {
-  const [time, setTime] = useState(null);
+  const [data, setData] = useState(null);
+  const [name, setName] = useState('');
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     // Check if the key exists in local storage
-    const savedTime = localStorage.getItem('time');
-    if (savedTime) {
-      setTime(savedTime);
-      setMessage(`Saved time: ${savedTime}`);
+    const savedData = localStorage.getItem('userData');
+    if (savedData) {
+      setData(JSON.parse(savedData));
+      setMessage('Saved data found in Local Storage');
     }
   }, []);
 
-  const saveTime = () => {
+  const saveData = () => {
     const currentTime = new Date().toLocaleString();
-    localStorage.setItem('time', currentTime);
-    setTime(currentTime);
-    setMessage(`Saved time: ${currentTime}`);
+    const userData = { name, time: currentTime };
+    localStorage.setItem('userData', JSON.stringify(userData));
+    setData(userData);
+    setMessage(`Saved data: ${JSON.stringify(userData)}`);
+
+    // Show notification
+    if (Notification.permission === 'granted') {
+      new Notification('Data Saved', {
+        body: `Name: ${name}, Time: ${currentTime}`,
+      });
+    }
   };
+
+  const requestNotificationPermission = () => {
+    if (Notification.permission !== 'denied' || Notification.permission === 'default') {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          new Notification('Notification enabled');
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    requestNotificationPermission();
+  }, []);
 
   return (
     <div>
-      <h1>Local Storage Time Example</h1>
-      {time ? (
+      <h1>Local Storage JSON Example</h1>
+      {data ? (
         <p>{message}</p>
       ) : (
         <>
-          <p>No time saved in Local Storage.</p>
-          <button onClick={saveTime}>Save Current Time</button>
+          <p>No data saved in Local Storage.</p>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button onClick={saveData}>Save Name and Time</button>
         </>
       )}
     </div>
