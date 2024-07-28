@@ -4,6 +4,7 @@
 import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
 import HomePage from "@/components/home/HomePage";
+import SdNotify from '@/components/Sdnotify'
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
@@ -24,7 +25,8 @@ const StoryContent = ({
   }} >
  <div>
 
-<HomePage/>
+{/* <HomePage/> */}
+<SdNotify/>
  </div>
       </Column>
       </Grid>;

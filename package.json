@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "next start"
   },
   "dependencies": {
     "@carbon/react": "^1.33.0",
@@ -19,7 +19,8 @@
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.63.6",
-    "sharp": "^0.33.4"
+    "sharp": "^0.33.4",
+    "web-push": "^3.6.7"
   },
   "resolutions": {
     "glob": "^9.0.0"
