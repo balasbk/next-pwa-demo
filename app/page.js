@@ -3,7 +3,33 @@ import { Grid,Column } from "@carbon/react";
 import Image from 'next/image'
 import Pic1 from '../public/pic1.png'
 import Pic2 from '../public/pic2.jpg'
+import { useEffect } from "react";
+
+
+
 export default function Home() {
+
+
+  useEffect(() => {
+    if ('Notification' in window) {
+      if (Notification.permission === 'default') {
+        Notification.requestPermission()
+          .then((permission) => {
+            if (permission === 'granted') {
+              console.log('Notification permission granted.');
+            } else if (permission === 'denied') {
+              console.log('Notification permission denied.');
+            }
+          })
+          .catch((error) => {
+            console.error('Error requesting notification permission:', error);
+          });
+      }
+    } else {
+      console.log('This browser does not support notifications.');
+    }
+  }, []);
+
   return (
     <Grid>
      <Column sm={{

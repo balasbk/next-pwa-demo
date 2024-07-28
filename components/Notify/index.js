@@ -21,23 +21,7 @@ const Index = () => {
 
   useEffect(() => {
 
-    if ('Notification' in window) {
-        if (Notification.permission === 'default') {
-          Notification.requestPermission()
-            .then((permission) => {
-              if (permission === 'granted') {
-                console.log('Notification permission granted.');
-              } else if (permission === 'denied') {
-                console.log('Notification permission denied.');
-              }
-            })
-            .catch((error) => {
-              console.error('Error requesting notification permission:', error);
-            });
-        }
-      } else {
-        console.log('This browser does not support notifications.');
-      }
+   
 
 
 
