@@ -16,6 +16,8 @@ const NotificationPage = () => {
   const [subscription, setSubscription] = useState(null);
   const [notificationTime, setNotificationTime] = useState('');
   const [notificationPeriod, setNotificationPeriod] = useState('AM');
+  const [message, setMessage] = useState('');
+  
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -80,6 +82,8 @@ const NotificationPage = () => {
   };
 
   const handleButtonClick = () => {
+
+    setMessage('please wait for the notification!');
     if (typeof window !== 'undefined') {
       clearInterval(window.notificationInterval);
 
@@ -132,6 +136,7 @@ const NotificationPage = () => {
         </TimePickerSelect>
       </div>
       <Button onClick={handleButtonClick}>Send Notification</Button>
+      {message && <p>{message}</p>}
     </div>
   );
 };
