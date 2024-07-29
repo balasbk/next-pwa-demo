@@ -14,5 +14,12 @@
         ]
       }
     ]
+  },
+  {
+    "label": "Note",
+    "url": "/note",
+    "children": [
+      { "label": "Filtered Note", "url": "/filterednote" }
+    ]
   }
 ]
