@@ -1,6 +1,4 @@
-// components/CarbonTable.js
-
-import React, { useState, useEffect ,useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   DataTable,
   TableContainer,
@@ -10,9 +8,11 @@ import {
   TableHeader,
   TableBody,
   TableCell,
+  TimePicker,
+  TimePickerSelect,
+  SelectItem,
+  Toggle
 } from 'carbon-components-react';
-import { TimePicker, TimePickerSelect, SelectItem } from 'carbon-components-react';
-import { Toggle } from 'carbon-components-react';
 
 const initialRows = [
   { id: '1', name: 'Item 1', time: '', period: 'AM', toggle: false },
@@ -21,7 +21,7 @@ const initialRows = [
 
 const CarbonTable = () => {
   const [rows, setRows] = useState(initialRows);
-
+  const [notificationSent, setNotificationSent] = useState({});
   const initialLoad = useRef(true);
 
   // Load data from local storage
@@ -31,19 +31,31 @@ const CarbonTable = () => {
       if (savedData) {
         setRows(JSON.parse(savedData));
       }
+      const savedNotifications = localStorage.getItem('notificationSent');
+      if (savedNotifications) {
+        setNotificationSent(JSON.parse(savedNotifications));
+      }
       initialLoad.current = false;
     }
   }, []);
+
   // Save data to local storage
   useEffect(() => {
     localStorage.setItem('carbonTableData', JSON.stringify(rows));
-  }, [rows]);
+    localStorage.setItem('notificationSent', JSON.stringify(notificationSent));
+  }, [rows, notificationSent]);
 
   const handleTimeChange = (id, event) => {
     const updatedRows = rows.map((row) =>
       row.id === id ? { ...row, time: event.target.value } : row
     );
     setRows(updatedRows);
+
+    // Reset notification sent status for the row
+    setNotificationSent((prev) => ({
+      ...prev,
+      [id]: false,
+    }));
   };
 
   const handlePeriodChange = (id, event) => {
@@ -51,6 +63,12 @@ const CarbonTable = () => {
       row.id === id ? { ...row, period: event.target.value } : row
     );
     setRows(updatedRows);
+
+    // Reset notification sent status for the row
+    setNotificationSent((prev) => ({
+      ...prev,
+      [id]: false,
+    }));
   };
 
   const handleToggleChange = (id, event) => {

@@ -71,6 +71,7 @@ const TutorialHeader = () => {
             aria-label="User Avatar"
             tooltipAlignment="center"
             className="action-icons"
+            href='/filterednote'
           >
             <UserAvatar size={20} />
           </HeaderGlobalAction>
