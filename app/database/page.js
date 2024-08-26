@@ -4,6 +4,7 @@
 import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
 import { useState } from 'react';
+import TimeToggle from "@/components/TimeToggle/TimeToggle";
 
 
 
@@ -42,6 +43,8 @@ const StoryContent = ({
           <h2 style={{
           margin: '0 0 30px'
         }}>Test DATABASES Page</h2>
+           <TimeToggle pageName="database" keyName="time1" />
+           <TimeToggle pageName="database" keyName="time2" />
           <p>
             The shell is perhaps the most crucial piece of any UI built with
             <a href="www.carbondesignsystem.com"> Carbon</a>. It contains the

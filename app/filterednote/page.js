@@ -5,7 +5,8 @@ import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
 import { useState } from 'react';
 import FilteredTable from "@/components/FilteredTable/FilteredTable";
-
+import TimeTable from "@/components/TimeTable/TimeTable";
+import UploadData from "@/components/Upload/UploadData";
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
@@ -38,7 +39,7 @@ const StoryContent = ({
     offset: 4
   }} >
    <div>
- <FilteredTable/>
+<UploadData/>
    </div>
       </Column>
       </Grid>;

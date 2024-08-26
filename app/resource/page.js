@@ -5,6 +5,7 @@ import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
 import HomePage from "@/components/home/HomePage";
 import SdNotify from '@/components/Sdnotify'
+import TimeToggle from "@/components/TimeToggle/TimeToggle";
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
@@ -26,7 +27,7 @@ const StoryContent = ({
  <div>
 
 {/* <HomePage/> */}
-<SdNotify/>
+<TimeToggle pageName="resource" keyName="time1" />
  </div>
       </Column>
       </Grid>;

@@ -4,6 +4,7 @@
 import { Content,Grid,Column } from "@carbon/react";
 import cx from 'classnames';
 import NotificationComponent from "@/components/NotificationComponent/NotificationComponent";
+import TimeToggle from "@/components/TimeToggle/TimeToggle";
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
@@ -23,7 +24,8 @@ const StoryContent = ({
     offset: 4
   }} >
    <div>
-    <NotificationComponent/>
+   <TimeToggle pageName="solution" keyName="time1" />
+   <TimeToggle pageName="solution" keyName="time2" />
    </div>
       </Column>
       </Grid>;
