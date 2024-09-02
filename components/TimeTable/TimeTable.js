@@ -1,32 +1,66 @@
 import React, { useState, useEffect } from 'react';
-import { DataTable, TableContainer, Table, TableHead, TableRow, TableHeader, TableBody, TableCell, Button } from '@carbon/react';
+import {
+  DataTable,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableHeader,
+  TableBody,
+  TableCell,
+  Button,
+  TextInput,
+} from '@carbon/react';
+import { TrashCan } from '@carbon/icons-react'; // Importing the delete icon
 
 const TimeTable = () => {
   const [timeData, setTimeData] = useState([]);
+  const [filterValue, setFilterValue] = useState(''); // State for the filter input
 
   useEffect(() => {
     const data = loadTimeDataFromLocalStorage();
-    
-    const formattedData = Object.entries(data)
-      .flatMap(([pageName, timeObj]) =>
-        Object.entries(timeObj)
-          .filter(([, { show }]) => show) // Only include entries with show = true
-          .map(([timeKey, { value, validation, message }], index) => ({
-            id: `${pageName}-${timeKey}-${index}`,
-            pageName,
-            timeKey,
-            value,
-            validation,
-            message,
-          }))
-      );
-    
+    const formattedData = formatDataForTable(data);
     setTimeData(formattedData);
   }, []);
 
   const loadTimeDataFromLocalStorage = () => {
     const data = localStorage.getItem('timeData');
     return data ? JSON.parse(data) : {};
+  };
+
+  const formatDataForTable = (data) => {
+    const formattedData = [];
+
+    // Iterate through each hashed key in localStorage
+    Object.entries(data).forEach(([hashedKey, { pageName, keyName, value, validation, message, show }]) => {
+      if (show) { // Only include entries with show = true
+        formattedData.push({
+          id: hashedKey, // Use hashed key as ID
+          pageName,      // Use saved pageName
+          timeKey: keyName,  // Use saved keyName
+          value,
+          validation,
+          message,
+          actions: 'delete'
+        });
+      }
+    });
+
+    return formattedData;
+  };
+
+  const deleteEntry = (id) => {
+    const updatedData = { ...loadTimeDataFromLocalStorage() };
+
+    if (updatedData[id]) {
+      delete updatedData[id]; // Remove the entry
+    }
+
+    // Save updated data back to local storage
+    localStorage.setItem('timeData', JSON.stringify(updatedData));
+
+    // Update the state to reflect the changes in the UI
+    setTimeData(formatDataForTable(updatedData));
   };
 
   const downloadJson = () => {
@@ -48,13 +82,29 @@ const TimeTable = () => {
     { key: 'value', header: 'Time Value' },
     { key: 'validation', header: 'Validation Message' },
     { key: 'message', header: 'Message' },
+    { key: 'actions', header: 'Actions' }, // New column for delete action
   ];
+
+  // Filter the data based on the filterValue
+  const filteredData = timeData.filter((entry) =>
+    entry.value.includes(filterValue)
+  );
 
   return (
     <div>
-      {timeData.length > 0 ? (
+      <div style={{ marginBottom: '20px' }}>
+        <TextInput
+          id="time-filter"
+          labelText="Filter by Time Value"
+          placeholder="Enter time value (e.g., 12:34)"
+          value={filterValue}
+          onChange={(e) => setFilterValue(e.target.value)}
+        />
+      </div>
+
+      {filteredData.length > 0 ? (
         <TableContainer title="Scheduled Times">
-          <DataTable rows={timeData} headers={headers} isSortable>
+          <DataTable rows={filteredData} headers={headers} isSortable>
             {({
               rows,
               headers,
@@ -76,7 +126,16 @@ const TimeTable = () => {
                   {rows.map((row) => (
                     <TableRow key={row.id} {...getRowProps({ row })}>
                       {row.cells.map((cell) => (
-                        <TableCell key={cell.id}>{cell.value}</TableCell>
+                        <TableCell key={cell.id}>
+                          {cell.value === 'delete' ? (
+                            <TrashCan
+                              style={{ cursor: 'pointer' }}
+                              onClick={() => deleteEntry(row.id)}
+                            />
+                          ) : (
+                            cell.value
+                          )}
+                        </TableCell>
                       ))}
                     </TableRow>
                   ))}

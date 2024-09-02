@@ -1,18 +1,12 @@
 "use client"
 
 
-import { Content,Grid,Column } from "@carbon/react";
-import cx from 'classnames';
-import HomePage from "@/components/home/HomePage";
-import SdNotify from '@/components/Sdnotify'
 import TimeToggle from "@/components/TimeToggle/TimeToggle";
+import { Column, Grid } from "@carbon/react";
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
-  const classNameFirstColumn = cx({
-    'cds--col-lg-13': true,
-    'cds--offset-lg-3': useResponsiveOffset
-  });
+ 
   const content = <Grid>
      <Column sm={{
     span: 4,
@@ -27,7 +21,7 @@ const StoryContent = ({
  <div>
 
 {/* <HomePage/> */}
-<TimeToggle pageName="resource" keyName="time1" />
+<TimeToggle pageName="resource" keyName="time1" validationName="Validation message for time1 on resource" messageName="Test message for time1" />
  </div>
       </Column>
       </Grid>;

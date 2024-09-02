@@ -4,7 +4,7 @@ import { TreeView, TreeNode } from 'carbon-components-react';
 import { useRouter } from 'next/navigation';
 import treeData from '../../public/json/tree.json'; // Adjust path if needed
 
-const Tree = ({ expandedNodes, onToggle }) => {
+const Tree = ({ expandedNodes, onToggle , onHandleSidenav}) => {
   const [treeNodes, setTreeNodes] = useState([]);
   const router = useRouter();
 
@@ -13,14 +13,16 @@ const Tree = ({ expandedNodes, onToggle }) => {
   }, []);
 
   const handleSelect = (node) => {
-   
+    
     if (node.url) {
       router.push(node.url);
+      onHandleSidenav()
     }
   };
   
   const handleToggle =(node)=>
     {
+      
       onToggle(node.label, !expandedNodes[node.label]);
 
     }

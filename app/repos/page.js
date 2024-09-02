@@ -1,11 +1,9 @@
 "use client"
 
 
-import { Content,Grid,Column } from "@carbon/react";
-import cx from 'classnames';
-import Image from 'next/image'
-import Pic1 from '../../public/pic1.png'
-import Pic2 from '../../public/pic2.jpg'
+import Image from 'next/image';
+import Pic1 from '../../public/pic1.png';
+import Pic2 from '../../public/pic2.jpg';
 // const StoryContent = ({
 //   useResponsiveOffset = true
 // }) => {

@@ -1,32 +1,15 @@
 "use client"
 
 
-import { Content,Grid,Column } from "@carbon/react";
-import cx from 'classnames';
-import { useState } from 'react';
-import CarbonTable from "@/components/CarbonTable/CarbonTable";
 import TimeTable from "@/components/TimeTable/TimeTable";
+import { Column, Content, Grid } from "@carbon/react";
+import { useState } from 'react';
 
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
-  const classNameFirstColumn = cx({
-    'cds--col-lg-13': true,
-    'cds--offset-lg-3': useResponsiveOffset
-  });
-  const [message, setMessage] = useState('');
-  const writeDate = async () => {
-    const response = await fetch('/api/writeDate', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
-  
-    const data = await response.json();
-    console.log(data)
-    setMessage(data.data.date);
-  };
+ 
+
   const content = <Grid>
      <Column sm={{
     span: 4,

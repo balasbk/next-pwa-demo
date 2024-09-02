@@ -1,9 +1,8 @@
 'use client'
-import { Grid,Column } from "@carbon/react";
-import Image from 'next/image'
-import Pic1 from '../public/pic1.png'
-import Pic2 from '../public/pic2.jpg'
+import { Column, Grid } from "@carbon/react";
+import Image from 'next/image';
 import { useEffect } from "react";
+import Pic2 from '../public/pic2.jpg';
 
 
 

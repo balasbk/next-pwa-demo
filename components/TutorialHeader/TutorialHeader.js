@@ -19,9 +19,10 @@ import { Switcher, Notification, UserAvatar } from '@carbon/icons-react';
 import Link from 'next/link';
 import Tree from '@/components/tree/Tree'
 import { useEffect,useState } from 'react';
+import { FALSE } from 'sass';
 const TutorialHeader = () => {
 
-  const [isSideNavExpanded,setisSideNavExpanded] = useState(true);
+  const [isSideNavExpanded,setisSideNavExpanded] = useState(false);
   const [expandedNodes, setExpandedNodes] = useState({});
 
   function handleDataFromChild() {
@@ -55,7 +56,7 @@ const TutorialHeader = () => {
         >
  <SideNavItems>
 
-          <Tree  expandedNodes={expandedNodes} onToggle={handleToggle} />
+          <Tree  expandedNodes={expandedNodes} onToggle={handleToggle}  onHandleSidenav={handleDataFromChild}/>
        
       </SideNavItems>
         </SideNav>

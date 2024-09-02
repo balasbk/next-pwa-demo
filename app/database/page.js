@@ -1,33 +1,17 @@
 "use client"
 
 
-import { Content,Grid,Column } from "@carbon/react";
-import cx from 'classnames';
-import { useState } from 'react';
 import TimeToggle from "@/components/TimeToggle/TimeToggle";
+import { Column, Content, Grid } from "@carbon/react";
+import { useState } from 'react';
 
 
 
 const StoryContent = ({
   useResponsiveOffset = true
 }) => {
-  const classNameFirstColumn = cx({
-    'cds--col-lg-13': true,
-    'cds--offset-lg-3': useResponsiveOffset
-  });
-  const [message, setMessage] = useState('');
-  const writeDate = async () => {
-    const response = await fetch('/api/writeDate', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
-  
-    const data = await response.json();
-    console.log(data)
-    setMessage(data.data.date);
-  };
+ 
+
   const content = <Grid>
      <Column sm={{
     span: 4,
@@ -43,8 +27,8 @@ const StoryContent = ({
           <h2 style={{
           margin: '0 0 30px'
         }}>Test DATABASES Page</h2>
-           <TimeToggle pageName="database" keyName="time1" />
-           <TimeToggle pageName="database" keyName="time2" />
+           <TimeToggle pageName="database" keyName="time1" validationName="Validation message for time1 on database" messageName="Test message for time1"/>
+           <TimeToggle pageName="database" keyName="time2" validationName="Validation message for time2 on database" messageName="Test message for time2" />
           <p>
             The shell is perhaps the most crucial piece of any UI built with
             <a href="www.carbondesignsystem.com"> Carbon</a>. It contains the
