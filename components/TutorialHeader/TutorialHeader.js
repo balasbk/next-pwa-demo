@@ -2,32 +2,27 @@ import {
   Header,
   HeaderContainer,
   HeaderName,
-  HeaderNavigation,
   HeaderMenuButton,
-  HeaderMenuItem,
   HeaderGlobalBar,
   HeaderGlobalAction,
   SkipToContent,
   SideNav,
-  SideNavItems,
-  SideNavMenu,
-  SideNavMenuItem,
-  SideNavLink
-  
+  SideNavItems
 } from '@carbon/react';
 import { Switcher, Notification, UserAvatar } from '@carbon/icons-react';
-import Link from 'next/link';
-import Tree from '@/components/tree/Tree'
-import { useEffect,useState } from 'react';
-import { FALSE } from 'sass';
+import { useEffect, useState } from 'react';
+import Tree from '@/components/tree/Tree';
+import { usePathname, useRouter } from 'next/navigation';
+
 const TutorialHeader = () => {
-
-  const [isSideNavExpanded,setisSideNavExpanded] = useState(false);
+  const [isSideNavExpanded, setIsSideNavExpanded] = useState(false);
   const [expandedNodes, setExpandedNodes] = useState({});
+  const pathname = usePathname();
+  const router = useRouter();
 
-  function handleDataFromChild() {
-    setisSideNavExpanded(false);
-  }
+  const handleDataFromChild = () => {
+    setIsSideNavExpanded(false);
+  };
 
   const handleToggle = (label, isExpanded) => {
     setExpandedNodes((prev) => ({
@@ -36,53 +31,62 @@ const TutorialHeader = () => {
     }));
   };
 
-  return(
-  <HeaderContainer
-    render={() => (
-      <Header aria-label="Carbon Tutorial">
-        <SkipToContent />
-        <HeaderMenuButton
-          aria-label="Open menu"
-          onClick={()=>setisSideNavExpanded(!isSideNavExpanded)}
-          isActive={isSideNavExpanded}
-        />
-        <HeaderName href="/" prefix="IBM">
-          SPT DEMO
-        </HeaderName>
-       
-        <SideNav
-         expanded={isSideNavExpanded} 
-          
-        >
- <SideNavItems>
-
-          <Tree  expandedNodes={expandedNodes} onToggle={handleToggle}  onHandleSidenav={handleDataFromChild}/>
-       
-      </SideNavItems>
-        </SideNav>
-        <HeaderGlobalBar>
-          <HeaderGlobalAction
-            aria-label="Notifications"
-            tooltipAlignment="center"
-            className="action-icons"
-          >
-            <Notification size={20} />
-          </HeaderGlobalAction>
-          <HeaderGlobalAction
-            aria-label="User Avatar"
-            tooltipAlignment="center"
-            className="action-icons"
-            href='/filterednote'
-          >
-            <UserAvatar size={20} />
-          </HeaderGlobalAction>
-          <HeaderGlobalAction aria-label="App Switcher" tooltipAlignment="end">
-            <Switcher size={20} />
-          </HeaderGlobalAction>
-        </HeaderGlobalBar>
-      </Header>
-    )}
-  />)
+  const handleNavigation = (path) => {
+    setIsSideNavExpanded(false); // Optionally close the SideNav on route change
+    router.push(path);
   };
+
+
+
+  return (
+    <HeaderContainer
+      render={() => (
+        <Header aria-label="Carbon Tutorial">
+          <SkipToContent />
+          <HeaderMenuButton
+            aria-label="Open menu"
+            onClick={() => setIsSideNavExpanded(!isSideNavExpanded)}
+            isActive={isSideNavExpanded}
+          />
+          <HeaderName href="/" prefix="IBM">
+            SPT DEMO
+          </HeaderName>
+
+          <SideNav expanded={isSideNavExpanded}>
+            <SideNavItems>
+              <Tree expandedNodes={expandedNodes} onToggle={handleToggle} onHandleSidenav={handleDataFromChild} />
+            </SideNavItems>
+          </SideNav>
+
+          <HeaderGlobalBar>
+            <HeaderGlobalAction
+              aria-label="Notifications"
+              tooltipAlignment="center"
+              className="action-icons"
+              onClick={() => handleNavigation('/case')}
+            >
+              <Notification size={20} />
+            </HeaderGlobalAction>
+            <HeaderGlobalAction
+              aria-label="User Avatar"
+              tooltipAlignment="center"
+              className="action-icons"
+              onClick={() => handleNavigation('/filterednote')}
+            >
+              <UserAvatar size={20} />
+            </HeaderGlobalAction>
+            <HeaderGlobalAction
+              aria-label="App Switcher"
+              tooltipAlignment="end"
+              onClick={() => handleNavigation('/note')}
+            >
+              <Switcher size={20} />
+            </HeaderGlobalAction>
+          </HeaderGlobalBar>
+        </Header>
+      )}
+    />
+  );
+};
 
 export default TutorialHeader;
