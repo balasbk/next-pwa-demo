@@ -31,7 +31,7 @@ const StoryContent = ({
            <TimeToggle pageName="database" keyName="time2" validationName="Validation message for time2 on database" messageName="Test message for time2" />
           <p>
             The shell is perhaps the most crucial piece of any UI built with
-            <a href="www.carbondesignsystem.com"> Carbon</a>. It contains the
+            <a href="https://carbondesignsystem.com/"> Carbon</a>. It contains the
             shared navigation framework for the entire design system and ties
             the products in IBM’s portfolio together in a cohesive and elegant
             way. The shell is the home of the topmost navigation, where users

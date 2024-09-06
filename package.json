@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@carbon/react": "^1.33.0",
+    "@carbon/themes": "^11.39.0",
     "@ducanh2912/next-pwa": "^10.2.7",
     "carbon-components": "^10.58.12",
     "carbon-components-react": "^8.59.0",

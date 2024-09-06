@@ -10,12 +10,12 @@ import {
   SideNavItems
 } from '@carbon/react';
 import { Switcher, Notification, UserAvatar } from '@carbon/icons-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Tree from '@/components/tree/Tree';
 import { usePathname, useRouter } from 'next/navigation';
 
 const TutorialHeader = () => {
-  const [isSideNavExpanded, setIsSideNavExpanded] = useState(false);
+  const [isSideNavExpanded, setIsSideNavExpanded] = useState(false); // Start collapsed
   const [expandedNodes, setExpandedNodes] = useState({});
   const pathname = usePathname();
   const router = useRouter();
@@ -32,27 +32,48 @@ const TutorialHeader = () => {
   };
 
   const handleNavigation = (path) => {
-    setIsSideNavExpanded(false); // Optionally close the SideNav on route change
+    setIsSideNavExpanded(false); // Close SideNav on route change
     router.push(path);
   };
-
-
 
   return (
     <HeaderContainer
       render={() => (
-        <Header aria-label="Carbon Tutorial">
+        <Header
+          aria-label="Carbon Tutorial"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between', // Ensures content is spaced out
+          }}
+        >
           <SkipToContent />
-          <HeaderMenuButton
-            aria-label="Open menu"
-            onClick={() => setIsSideNavExpanded(!isSideNavExpanded)}
-            isActive={isSideNavExpanded}
-          />
-          <HeaderName href="/" prefix="IBM">
-            SPT DEMO
-          </HeaderName>
 
-          <SideNav expanded={isSideNavExpanded}>
+          {/* Container for HeaderMenuButton and HeaderName */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <HeaderMenuButton
+              aria-label="Open menu"
+              onClick={() => setIsSideNavExpanded(!isSideNavExpanded)} // Toggle SideNav on click
+              isActive={isSideNavExpanded}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: '16px',
+              }}
+            />
+            <HeaderName href="/" prefix="IBM">
+              SPT DEMO
+            </HeaderName>
+          </div>
+
+          <SideNav expanded={isSideNavExpanded} isPersistent={false}>
             <SideNavItems>
               <Tree expandedNodes={expandedNodes} onToggle={handleToggle} onHandleSidenav={handleDataFromChild} />
             </SideNavItems>
