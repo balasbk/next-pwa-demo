@@ -1,0 +1,25 @@
+.backgroundContainer {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .textOverlay {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); // Optional for text contrast
+  }
+  
+  .middleImage {
+    margin: 20px 0;  // Adds spacing around the middle image
+    text-align: center;
+  
+    img {
+      border-radius: 8px;  // Optional styling for image (e.g., rounded corners)
+    }
+  }
+  
