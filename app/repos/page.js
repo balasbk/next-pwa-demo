@@ -91,90 +91,11 @@ import Pic2 from '../../public/pic2.jpg';
 
 export default function RepoPage() {
   return(<div>
-        <div
-      style={{
-        display: 'grid',
-        gridGap: '8px',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(400px, auto))',
-        margin: '10px'
-      }}
-    >
-      <div style={{ position: 'relative', height: '400px' }}>
-        <Image
-          alt="Mountains"
-          src={Pic2}
-          fill
-          sizes="(min-width: 808px) 50vw, 100vw"
-          style={{
-            objectFit: 'cover', // cover, contain, none
-          }}
-        />
-      </div>
-      <div style={{ position: 'relative', height: '400px' }}>
-        <Image
-          alt="Mountains"
-          src={Pic1}
-          fill
-          sizes="(min-width: 808px) 50vw, 100vw"
-          style={{
-            objectFit: 'cover', // cover, contain, none
-          }}
-        />
-            <div className="text-overlay">
-      <h1>Test App</h1>
-      <p>Some more text</p>
-    </div>
-      </div>
-      <div style={{ position: 'relative', height: '400px' }}>
-        <Image
-          alt="Mountains"
-          src={Pic1}
-          fill
-          sizes="(min-width: 808px) 50vw, 100vw"
-          style={{
-            objectFit: 'cover', // cover, contain, none
-          }}
-        />
-            <div className="text-overlay">
-      <h1>Test App</h1>
-      <p>Some more text</p>
-    </div>
-      </div>
-      {/* And more images in the grid... */}
-    </div>
+        
     <div
-      style={{
-        display: 'grid',
-        gridGap: '8px',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(400px, auto))',
-      }}
+      
     >
-      <div style={{ position: 'relative', height: '400px' }}>
-        <Image
-          alt="Mountains"
-          src={Pic2}
-          fill
-          sizes="(min-width: 808px) 50vw, 100vw"
-          style={{
-            objectFit: 'cover', // cover, contain, none
-          }}
-        />
-      </div>
-      <div style={{ position: 'relative', height: '400px' }}>
-        <Image
-          alt="Mountains"
-          src={Pic2}
-          fill
-          sizes="(min-width: 808px) 50vw, 100vw"
-          style={{
-            objectFit: 'cover', // cover, contain, none
-          }}
-        />
-            <div className="text-overlay">
-      <h1>Test App</h1>
-      <p>Some more text</p>
-    </div>
-      </div>
+      
       <div style={{ position: 'relative', height: '400px' }}>
         <Image
           alt="Mountains"
@@ -190,6 +111,7 @@ export default function RepoPage() {
       <p>Some more text</p>
     </div>
       </div>
+    x
       {/* And more images in the grid... */}
     </div>
   </div>);
