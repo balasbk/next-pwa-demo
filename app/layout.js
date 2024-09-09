@@ -9,13 +9,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <head>
+      <head>
         <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/icon.png"></link>
-          <meta name="theme-color" content="#fff" />
-          </head>
+        <link rel="apple-touch-icon" href="/icon.png" />
+        <meta name="theme-color" content="#fff" />
+      </head>
       <body>
-        <Providers>{children}</Providers>
+        <div className="backgroundContainer">
+          
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );
