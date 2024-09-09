@@ -15,7 +15,7 @@ export default function BackgroundWithText({ backgroundImage, title, text, middl
       >
         <div className={styles.textOverlay}>
           <h1>{title}</h1> {/* Title passed as prop */}
-          <p>{text}</p> {/* Text passed as prop */}
+     {/* Text passed as prop */}
           
           {/* Middle image component */}
           <div className={styles.middleImage}>
