@@ -4,6 +4,7 @@
 import Image from 'next/image';
 import Pic1 from '../../public/pic1.png';
 import Pic2 from '../../public/pic2.jpg';
+import TimeToggle from '@/components/TimeToggle/TimeToggle';
 // const StoryContent = ({
 //   useResponsiveOffset = true
 // }) => {
@@ -108,7 +109,9 @@ export default function RepoPage() {
         />
             <div className="text-overlay">
       <h1>Test App</h1>
-      <p>Some more text</p>
+     
+      <TimeToggle pageName="repos page" keyName="time2" validationName="Validation message for time2 on repos" messageName="Test message for time2" />
+
     </div>
       </div>
     x
